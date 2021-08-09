@@ -50,7 +50,7 @@ def dHash(img):
 
 
 def hammingDist(s1, s2):
-    assert len(s1) == len(s2)
+    assert len(s1) == len(s2), "Lengths of Two strings must be equal!"
     return sum([ch1 != ch2 for ch1, ch2 in zip(s1, s2)])
 
 
@@ -84,14 +84,10 @@ def calculate(image1, image2):
 
 
 if __name__ == '__main__':
-    raw_img1 = 'C:/Users/Lenovo/Desktop/大漠叔叔.png'
-    raw_img2 = 'C:/Users/Lenovo/Desktop/淑媛.png'
+    raw_img1 = r"C:\Users\Lenovo\Desktop\pics\326992_1.jpg"
+    raw_img2 = r"C:\Users\Lenovo\Desktop\pics\81KXAlq0okL._AC_SX569_.jpg"
     img1 = cv2.imread(raw_img1)
     img2 = cv2.imread(raw_img2)
-    print(img1)
-    print(img2)
-    print(img1.shape)
-    print(img2.shape)
 
     ahash_str1 = aHash(img1)
     ahash_str2 = aHash(img2)
@@ -106,9 +102,9 @@ if __name__ == '__main__':
     d_score = 1 - hammingDist(dhash_str1, dhash_str2) * 1. / (32 * 32 / 4)
 
     n = classify_hist_with_split(img1, img2)
-    print('三直方图算法相似度：', n)
+    print('Similarity:', n[0])
 
-print('a_score:{},p_score:{},d_score{}'.format(a_score, p_score, d_score))
+# print('a_score:{},\np_score:{},\nd_score{}\n'.format(a_score, p_score, d_score))
 
 
 end = time.time()
