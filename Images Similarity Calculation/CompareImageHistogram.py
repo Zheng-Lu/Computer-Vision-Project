@@ -12,8 +12,8 @@ def compare_img_hist(img1, img2):
          1. img1 and img2 are both 720P .PNG file,
             and if compare with img1, img2 only add a black dot(about 9*9px),
             the result will be 0.999999999953
-    :param img1: img1 in MAT format(img1 = cv2.imread(image1))
-    :param img2: img2 in MAT format(img2 = cv2.imread(image2))
+    :param img1: file path
+    :param img2: file path
     :return: the similarity of two pictures
     """
     # Get the histogram data of image 1, then using normalize the picture for better compare
@@ -36,7 +36,7 @@ start = time.time()
 if __name__ == '__main__':
     image1 = r"C:\Users\Lenovo\Desktop\pics\326992_1.jpg"
     image2 = r"C:\Users\Lenovo\Desktop\pics\81KXAlq0okL._AC_SX569_.jpg"
-    print(compare_img_hist(image1, image2))
+    print(f'Similarity: {compare_img_hist(image1, image2)}')
 
 end = time.time()
 seconds = round(end - start, 2)

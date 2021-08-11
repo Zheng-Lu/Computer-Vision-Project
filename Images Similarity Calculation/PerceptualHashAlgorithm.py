@@ -20,7 +20,7 @@ def aHash(img):
     ahash_str = ''.join([str(x) for x in ahash_list])
     return ahash_str
 
-
+# Perceptual hash algorithm
 def pHash(img):
     img = cv2.resize(img, (32, 32))  # 默认interpolation=cv2.INTER_CUBIC
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -33,7 +33,7 @@ def pHash(img):
     phash_str = ''.join([str(x) for x in phash_list])
     return phash_str
 
-
+# 差异哈希算法
 def dHash(img):
     img = cv2.resize(img, (9, 8))
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
